@@ -11,3 +11,4 @@ print(randTensor.mean()) # requires datatype to be float32 to perform
 
 print(randTensor.argmin()) # Finds the index position of the smallest value
 print(randTensor.argmax()) # Finds the index position of the largest value
+print("Nutttttttttttttt")
