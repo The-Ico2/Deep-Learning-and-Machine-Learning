@@ -19,12 +19,13 @@ float_16_tensorEX2 = tc.tensor([3.0, 6.0, 9.0], dtype=tc.float16)
 print(float_16_tensorEX1.dtype, "\n", float_16_tensorEX2.dtype)
 
 
-# datatype after multipling tensors
+# Value after multipling tensors
 float32x16 = float_32_tensor * float_16_tensor
 flaot32x64 = float_32_tensor * float_64_tensor
 float16x64 = float_16_tensor * float_64_tensor
 
-print(float32x16, float32x16.dtype)
+# Printing the datatype and value
+print(float32x16, float32x16.dtype) 
 print(flaot32x64, flaot32x64.dtype)
 print(float16x64, float16x64.dtype)
 # When multiplting, dividing, subtracting, or adding tensors of different datatypes like float16 float32 and float64 the datatype will be set to the largest bit type
