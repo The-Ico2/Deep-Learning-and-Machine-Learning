@@ -5,9 +5,11 @@ import matplotlib.pyplot as plt
                 
 def model(x, y):
     ANNreg = nn.Sequential(
-        nn.Linear(1, 1),
+        nn.Linear(4, 64),
         nn.ReLU(),
-        nn.Linear(1, 1)
+        nn.Linear(64, 64),
+        nn.ReLU(),
+        nn.Linear(64, 3)
     )
 
     LearningRate = .05
