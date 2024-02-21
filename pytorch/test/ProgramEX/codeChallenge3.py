@@ -84,7 +84,7 @@ plt.xlabel('qwerty dimension 1')
 plt.ylabel('qwerty dimension 2')
 plt.show()
 
-ax[1].plot(ongoingAcc)
+# ax[1].plot(ongoingAcc)
 ax[1].set_ylabel('accuracy')
 ax[1].set_xlabel('epoch')
 ax[1].set_title('Accuracy')
