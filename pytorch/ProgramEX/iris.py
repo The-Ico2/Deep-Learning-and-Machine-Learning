@@ -45,8 +45,6 @@ optimizer = torch.optim.SGD(net.parameters(), lr=0.005)
 
 for epochi in range(30000):
     optimizer.zero_grad()
-    outputs = net(x_train)
-    loss = criterion(outputs, y_train)
     loss.backward()
     optimizer.step()
 
