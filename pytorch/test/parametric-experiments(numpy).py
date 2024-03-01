@@ -50,8 +50,8 @@ def deriv(x):
 # Experiment 3: interaction between learning rates and training epochs
 
 # setup parameters
-learningrates = tl(1e-10,1e-1,10)
-training_epochs = tr(tl(10,500,10))
+learningrates = tl(1e-10,1e-1,50)
+training_epochs = tr(tl(10,500,40))
 
 # Initialize matrix to store results
 finalres = tz((len(learningrates),len(training_epochs)))
@@ -70,7 +70,7 @@ for Lidx,learningRate in enumerate(learningrates):
 end = time.time()
 tte = end-start
 print('}--------------------------------------------------------------------------------| Program Has Ended |--------------------------------------------------------------------------------{')
-print('Time To Finish Execution: ', round(tte),'s')
+print(f'Execution Time: {round(tte)}s')
 
 # plot the result
 fig,ax = plt.subplots(figsize=(7,5))
