@@ -19,36 +19,6 @@ data = torch.tensor( iris[iris.columns[0:4]].values, device=cuda_device).float()
 labels = torch.zeros(len(data), dtype=torch.long, device=cuda_device)
 labels[iris.species=='versicolor'] = 1
 labels[iris.species=='virginica'] = 2
-
-# nPerClust = 100
-# blur = 1
-
-# A = [  1, 1 ]
-# B = [  5, 1 ]
-
-# # generate data
-# a = [ A[0]+np.random.randn(nPerClust)*blur , A[1]+np.random.randn(nPerClust)*blur ]
-# b = [ B[0]+np.random.randn(nPerClust)*blur , B[1]+np.random.randn(nPerClust)*blur ]
-
-# # true labels
-# labels_np = np.vstack((np.zeros((nPerClust,1)),np.ones((nPerClust,1))))
-
-# # concatanate into a matrix
-# data_np = np.hstack((a,b)).T
-
-# # convert to a pytorch tensor
-# data = torch.tensor(data_np).float()
-# labels = torch.tensor(labels_np).float()
-
-# show the data
-# fig = plt.figure(figsize=(5,5))
-# plt.plot(data[np.where(labels==0)[0],0],data[np.where(labels==0)[0],1],'bs')
-# plt.plot(data[np.where(labels==1)[0],0],data[np.where(labels==1)[0],1],'ko')
-# plt.title('The qwerties!')
-# plt.xlabel('qwerty dimension 1')
-# plt.ylabel('qwerty dimension 2')
-# plt.show()
-
 #------------------------------------------
 
 
@@ -128,37 +98,11 @@ def train(ANN):
     predlabels = torch.argmax(predictions,axis=1)
     print(predlabels)
     totalacc = 100*torch.mean((predlabels == labels).float()).cuda('cuda:0')
-
-        # misclassified = np.where(predlabels != labels)[0]
-
-        # totalacc = 100-100*len(misclassified)/(2*nPerClust)
-
     return totalacc
 
 
-
-
-# # report loss and accuracy
-# print('Final accuracy: %g%%' %totalacc)
-# fig = plt.figure(figsize=(5,5))
-# plt.plot(losses.detach())
-# plt.ylabel('Loss')
-# plt.xlabel('epoch')
-# plt.title('Losses')
-# plt.show()
-
-# # report the labeled data
-# fig = plt.figure(figsize=(5,5))
-# plt.plot(data[misclassified,0] ,data[misclassified,1],'rx',markersize=12,markeredgewidth=3)
-# plt.plot(data[np.where(~predlabels)[0],0],data[np.where(~predlabels)[0],1],'bs')
-# plt.plot(data[np.where(predlabels)[0],0] ,data[np.where(predlabels)[0],1] ,'ko')
-
-# plt.legend(['Misclassified','blue','black'],bbox_to_anchor=(1,1))
-# plt.title(f'{totalacc}% correct')
-# plt.show()
-
-layers = range(1,6)         # number of hidden layers
-units  = torch.arange(1,101).cuda('cuda:0')   # units per hidden layer
+layers = range(1,6)                             # number of hidden layers
+units  = torch.arange(1,101).cuda('cuda:0')     # units per hidden layer
 
 accuracies  = torch.zeros((len(units),len(layers))).cuda('cuda:0')
 

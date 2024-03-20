@@ -51,7 +51,7 @@ def deriv(x):
 
 # setup parameters
 learningrates = tl(1e-10,1e-1,100)
-training_epochs = tr(tl(10,100,200))
+training_epochs = tr(tl(10,100,100))
 
 # Initialize matrix to store results
 finalres = tz((len(learningrates),len(training_epochs)))
